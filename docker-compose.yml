@@ -1,0 +1,15 @@
+﻿version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_ENV=development
+      - SECRET_KEY=your-secret-key-here
+      - DATABASE_URL=sqlite:///todo.db
+    volumes:
+      - .:/app
+    command: flask run --host=0.0.0.0
